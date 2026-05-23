@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>متجر الأرقام</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:#111;
+font-family:Arial;
+direction:rtl;
+color:white;
+}
+
+.topbar{
+background:#00b894;
+padding:12px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+max-width:450px;
+margin:auto;
+}
+
+.card{
+background:#1c1c1c;
+padding:20px;
+border-radius:18px;
+margin-top:20px;
+}
+
+h1{
+text-align:center;
+font-size:26px;
+}
+
+input,select,button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+font-size:16px;
+}
+
+input,select{
+background:#2b2b2b;
+color:white;
+}
+
+button{
+background:#00b894;
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.price{
+margin-top:10px;
+font-size:18px;
+text-align:center;
+color:#00ffbf;
+}
+
+.footer{
+margin-top:25px;
+text-align:center;
+font-size:14px;
+color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+🔥 عروض خاصة على الأرقام الأمريكية اليوم
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h1>احصل على رقم لتفعيل التطبيقات</h1>
+
+<input type="text" id="name" placeholder="اسم العميل">
+
+<select id="service">
+<option value="واتساب">واتساب</option>
+<option value="تلجرام">تلجرام</option>
+<option value="جوجل">جوجل</option>
+<option value="ديسكورد">ديسكورد</option>
+</select>
+
+<select id="country" onchange="updatePrice()">
+<option value="أمريكا|5$">أمريكا</option>
+<option value="بريطانيا|4$">بريطانيا</option>
+<option value="فرنسا|3$">فرنسا</option>
+<option value="كندا|6$">كندا</option>
+</select>
+
+<div class="price" id="price">
+السعر التقريبي: 5$
+</div>
+
+<input type="text" id="contact" placeholder="يوزر تلجرام أو واتساب">
+
+<button onclick="sendOrder()">
+إرسال الطلب
+</button>
+
+<div class="footer">
+جميع الطلبات يتم الرد عليها بأسرع وقت
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const BOT_TOKEN = "8936474403:AAG3P7rD8x8Qxr72aVV_Dsb7Wdy59U5MJlM";
+const CHAT_ID = "6918534470";
+
+function updatePrice(){
+
+let country =
+document.getElementById("country").value;
+
+let price =
+country.split("|")[1];
+
+document.getElementById("price").innerHTML =
+"السعر التقريبي: " + price;
+
+}
+
+function sendOrder(){
+
+let name =
+document.getElementById("name").value;
+
+let service =
+document.getElementById("service").value;
+
+let country =
+document.getElementById("country").value.split("|")[0];
+
+let price =
+document.getElementById("country").value.split("|")[1];
+
+let contact =
+document.getElementById("contact").value;
+
+let text = `
+📥 طلب جديد
+
+👤 الاسم:
+${name}
+
+📱 الخدمة:
+${service}
+
+🌍 الدولة:
+${country}
+
+💵 السعر:
+${price}
+
+📞 التواصل:
+${contact}
+`;
+
+fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+chat_id:CHAT_ID,
+
+text:text
+
+})
+
+})
+
+.then(response => {
+
+alert("✅ تم إرسال الطلب بنجاح");
+
+})
+
+.catch(error => {
+
+alert("❌ حدث خطأ");
+
+});
+
+}
+
+</script>
+
+</body>
+  </html>
