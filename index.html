@@ -6,191 +6,53 @@
 <title>عالم الأرقام</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Tahoma,sans-serif;
-}
-
-body{
-background:#f4f7fb;
-color:#111827;
-}
-
-.offer-bar{
-background:#c40000;
-color:white;
-padding:14px;
-overflow:hidden;
-white-space:nowrap;
-font-size:17px;
-font-weight:bold;
-}
-
-.offer-text{
-display:inline-block;
-animation:move 16s linear infinite;
-}
-
-@keyframes move{
-0%{transform:translateX(100%)}
-100%{transform:translateX(-100%)}
-}
-
-.container{
-max-width:500px;
-margin:25px auto;
-padding:15px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:28px;
-box-shadow:0 10px 35px rgba(0,0,0,0.08);
-}
-
-.title{
-font-size:38px;
-font-weight:bold;
-text-align:center;
-margin-bottom:18px;
-color:#111827;
-}
-
-.description{
-text-align:center;
-line-height:2;
-font-size:18px;
-color:#4b5563;
-margin-bottom:28px;
-}
-
-label{
-display:block;
-margin-top:18px;
-margin-bottom:8px;
-font-size:17px;
-font-weight:bold;
-color:#1f2937;
-}
-
-select,
-input,
-textarea{
-width:100%;
-padding:16px;
-border-radius:16px;
-border:1px solid #d1d5db;
-background:#f9fafb;
-font-size:17px;
-outline:none;
-}
-
-textarea{
-height:100px;
-resize:none;
-}
-
-.price-box{
-margin-top:22px;
-background:#ecfdf5;
-border:1px solid #a7f3d0;
-padding:18px;
-border-radius:18px;
-text-align:center;
-line-height:2;
-color:#047857;
-}
-
-.price-box strong{
-font-size:25px;
-display:block;
-margin-bottom:8px;
-}
-
-.small-note{
-font-size:14px;
-color:#475569;
-margin-top:10px;
-line-height:1.9;
-}
-
-button{
-width:100%;
-padding:17px;
-border:none;
-border-radius:18px;
-margin-top:22px;
-background:#00b894;
-color:white;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-opacity:0.9;
-}
-
-.hidden{
-display:none;
-}
-
-.success-message{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:999;
-}
-
-.success-box{
-background:white;
-padding:35px;
-border-radius:25px;
-text-align:center;
-max-width:400px;
-line-height:2;
-font-size:22px;
-font-weight:bold;
-color:#111827;
-box-shadow:0 15px 40px rgba(0,0,0,0.2);
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Tahoma,Arial,sans-serif}
+body{background:#f4f7fb;color:#172033}
+.offer{background:#c40000;color:white;padding:11px;overflow:hidden;white-space:nowrap;font-size:15px;font-weight:bold}
+.offer span{display:inline-block;animation:move 16s linear infinite}
+@keyframes move{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.wrap{max-width:480px;margin:auto;padding:18px}
+.card{background:white;border-radius:24px;padding:22px;box-shadow:0 12px 35px rgba(20,40,80,.12);border:1px solid #e8edf5}
+h1{text-align:center;font-size:26px;margin-bottom:14px;color:#0f172a}
+.desc{text-align:center;color:#566176;line-height:1.8;font-size:15px;margin-bottom:20px}
+label{display:block;margin-top:14px;margin-bottom:7px;color:#334155;font-weight:bold;font-size:15px}
+select,input,textarea,button{width:100%;padding:14px;border-radius:15px;font-size:15px}
+select,input,textarea{background:#f8fafc;color:#111827;border:1px solid #dce3ee}
+textarea{resize:none;height:85px}
+.error{color:#dc2626;font-size:13px;margin-top:6px;display:none}
+.info{margin:18px 0;padding:14px;background:#eefdf7;color:#047857;border:1px solid #b7f3db;border-radius:18px;text-align:center;line-height:1.8;font-size:14px}
+.info b{font-size:17px}
+.note{font-size:12px;color:#64748b;margin-top:8px;line-height:1.8}
+button{border:0;background:#00b894;color:white;font-size:18px;font-weight:bold;margin-top:18px;cursor:pointer}
+button:disabled{opacity:.6}
+.hidden{display:none}
+.back{background:#64748b;margin-top:10px}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:22px;z-index:99}
+.modal-box{background:white;color:#0f172a;border-radius:24px;padding:28px;text-align:center;line-height:1.8;max-width:360px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.check{width:70px;height:70px;margin:0 auto 14px;display:block}
+.modal-title{font-size:22px;font-weight:bold;margin-bottom:8px;color:#047857}
+.modal-text{font-size:15px;color:#334155}
 </style>
 </head>
 
 <body>
 
-<div class="offer-bar">
-<div class="offer-text">
-🔥 عروض خاصة على أرقام واتساب وتلجرام وجوجل وآي كلاود وباقي التطبيقات 🔥
-</div>
+<div class="offer">
+<span>🔥 عروض خاصة على أرقام تفعيل واتساب وتلجرام وجوجل وآي كلاود وباقي التطبيقات 🔥</span>
 </div>
 
-<div class="container">
+<div class="wrap">
 
 <div class="card" id="homePage">
+<h1>عالم الأرقام</h1>
 
-<div class="title">
-عالم الأرقام
-</div>
-
-<div class="description">
-يوفر موقع عالم الأرقام جميع أرقام تفعيل التطبيقات مثل واتساب وباقي التطبيقات الأخرى.
-</div>
+<p class="desc">
+يوفر موقع عالم الأرقام أرقام تفعيل للتطبيقات مثل واتساب وتلجرام وباقي الخدمات الأخرى.
+</p>
 
 <label>اختر الخدمة</label>
-
 <select id="service">
+<option value="">اختر الخدمة</option>
 <option>واتساب</option>
 <option>تلجرام</option>
 <option>فيسبوك</option>
@@ -203,10 +65,11 @@ box-shadow:0 15px 40px rgba(0,0,0,0.2);
 <option>ديسكورد</option>
 <option>خدمة أخرى</option>
 </select>
+<div class="error" id="serviceError">يرجى اختيار الخدمة</div>
 
 <label>اختر الدولة</label>
-
 <select id="country">
+<option value="">اختر الدولة</option>
 <option>🇸🇦 السعودية</option>
 <option>🇦🇪 الإمارات</option>
 <option>🇰🇼 الكويت</option>
@@ -228,164 +91,158 @@ box-shadow:0 15px 40px rgba(0,0,0,0.2);
 <option>🇹🇳 تونس</option>
 <option>🌍 دولة أخرى</option>
 </select>
+<div class="error" id="countryError">يرجى اختيار الدولة</div>
 
-<div class="price-box">
-
-<strong>
-يبدأ سعر الأرقام من 3$ إلى 15$
-</strong>
-
-حسب نوع الخدمة والدولة.<br>
-لتأكيد السعر بعد إرسال الطلب سيتم التواصل معكم لتأكيد السعر وطرق الدفع.
-
-<div class="small-note">
-طرق الدفع المتوفرة:<br>
-شام كاش والعملات الرقمية فقط.
+<div class="info">
+<b>يبدأ سعر الأرقام من 3$ إلى 15$</b>
+<div>
+حسب نوع الخدمة والدولة. بعد إرسال الطلب سيتم التواصل معكم لتأكيد السعر وطرق الدفع.
+</div>
+<div class="note">
+طرق الدفع المتاحة: شام كاش والعملات الرقمية فقط.
+</div>
 </div>
 
-</div>
-
-<button onclick="openOrderPage()">
-اطلب الآن
-</button>
-
+<button onclick="openOrderPage()">اطلب الآن</button>
 </div>
 
 <div class="card hidden" id="orderPage">
-
-<div class="title" style="font-size:30px">
-إتمام الطلب
-</div>
+<h1>إتمام الطلب</h1>
 
 <label>الاسم</label>
 <input type="text" id="name" placeholder="اكتب اسمك">
+<div class="error" id="nameError">الاسم مطلوب ويقبل حروف عربية أو إنجليزية فقط</div>
 
 <label>رقم التواصل</label>
-<input type="text" id="phone" placeholder="رقم واتساب أو وسيلة التواصل">
+<input type="tel" id="phone" placeholder="اكتب رقم التواصل من 8 إلى 10 أرقام" maxlength="10">
+<div class="error" id="phoneError">رقم التواصل مطلوب ويجب أن يكون من 8 إلى 10 أرقام</div>
 
-<label>يوزر تلجرام (اختياري)</label>
+<label>يوزر تلجرام - اختياري</label>
 <input type="text" id="telegram" placeholder="@username">
 
-<label>ملاحظة (اختياري)</label>
+<label>ملاحظة - اختياري</label>
 <textarea id="note" placeholder="اكتب أي ملاحظة"></textarea>
 
-<button onclick="sendOrder()">
-إرسال الطلب
-</button>
-
+<button id="sendBtn" onclick="sendOrder()">إرسال الطلب</button>
+<button class="back" onclick="backHome()">رجوع</button>
 </div>
 
 </div>
 
-<div class="success-message" id="successMessage">
-<div class="success-box">
-✅ تم إرسال الطلب بنجاح<br>
-سوف يتم التواصل معك في أسرع وقت ممكن<br>
-شكراً لك
+<div class="modal" id="successModal">
+<div class="modal-box">
+<svg class="check" viewBox="0 0 80 80">
+<circle cx="40" cy="40" r="36" fill="#ecfdf5" stroke="#10b981" stroke-width="4"/>
+<path d="M24 41 L35 52 L57 29" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="modal-title">تم إرسال الطلب بنجاح</div>
+<div class="modal-text">
+سوف يتم التواصل معك في أسرع وقت ممكن لتأكيد السعر وطريقة الدفع. شكراً لاختيارك عالم الأرقام.
+</div>
 </div>
 </div>
 
 <script>
-
 const WORKER_URL = "https://damp-grass-a142.mhaa440mk.workers.dev/";
-
 const CHAT_ID = "6918534470";
 
+function showError(id, show){
+  document.getElementById(id).style.display = show ? "block" : "none";
+}
+
 function openOrderPage(){
+  const service = document.getElementById("service").value;
+  const country = document.getElementById("country").value;
 
-document.getElementById("homePage").classList.add("hidden");
+  showError("serviceError", !service);
+  showError("countryError", !country);
 
-document.getElementById("orderPage").classList.remove("hidden");
+  if(!service || !country) return;
 
+  document.getElementById("homePage").classList.add("hidden");
+  document.getElementById("orderPage").classList.remove("hidden");
+}
+
+function backHome(){
+  document.getElementById("orderPage").classList.add("hidden");
+  document.getElementById("homePage").classList.remove("hidden");
+}
+
+document.getElementById("name").addEventListener("input", function(){
+  this.value = this.value.replace(/[^a-zA-Z\u0600-\u06FF\s]/g, "");
+});
+
+document.getElementById("phone").addEventListener("input", function(){
+  this.value = this.value.replace(/\D/g, "").slice(0,10);
+});
+
+function validateOrder(){
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  const validName = /^[a-zA-Z\u0600-\u06FF\s]{2,}$/.test(name);
+  const validPhone = /^\d{8,10}$/.test(phone);
+
+  showError("nameError", !validName);
+  showError("phoneError", !validPhone);
+
+  return validName && validPhone;
 }
 
 async function sendOrder(){
+  if(!validateOrder()) return;
 
-const service =
-document.getElementById("service").value;
+  const sendBtn = document.getElementById("sendBtn");
+  sendBtn.disabled = true;
+  sendBtn.innerText = "جاري الإرسال...";
 
-const country =
-document.getElementById("country").value;
+  const service = document.getElementById("service").value;
+  const country = document.getElementById("country").value;
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const telegram = document.getElementById("telegram").value.trim();
+  const note = document.getElementById("note").value.trim();
 
-const name =
-document.getElementById("name").value;
-
-const phone =
-document.getElementById("phone").value;
-
-const telegram =
-document.getElementById("telegram").value;
-
-const note =
-document.getElementById("note").value;
-
-const message = `
+  const message = `
 📥 طلب جديد من موقع عالم الأرقام
 
-📱 الخدمة:
-${service}
+📱 الخدمة: ${service}
+🌍 الدولة: ${country}
+💰 السعر: من 3$ إلى 15$ حسب الخدمة والدولة
 
-🌍 الدولة:
-${country}
+👤 الاسم: ${name}
+📞 رقم التواصل: ${phone}
+🔹 يوزر تلجرام: ${telegram || "غير مذكور"}
+📝 ملاحظة: ${note || "لا يوجد"}
 
-💰 السعر:
-من 3$ إلى 15$
-
-👤 الاسم:
-${name}
-
-📞 رقم التواصل:
-${phone}
-
-🔹 يوزر تلجرام:
-${telegram || "غير موجود"}
-
-📝 ملاحظة:
-${note || "لا يوجد"}
-
-💳 طرق الدفع:
-شام كاش والعملات الرقمية فقط
+💳 طرق الدفع: شام كاش والعملات الرقمية فقط
 `;
 
-try{
+  try{
+    const response = await fetch(WORKER_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message
+      })
+    });
 
-const response = await fetch(WORKER_URL,{
+    if(!response.ok) throw new Error("فشل الإرسال");
 
-method:"POST",
+    document.getElementById("successModal").style.display = "flex";
 
-headers:{
-"Content-Type":"application/json"
-},
+    setTimeout(()=>{
+      document.getElementById("successModal").style.display = "none";
+      location.reload();
+    },15000);
 
-body:JSON.stringify({
-chat_id:CHAT_ID,
-text:message
-})
-
-});
-
-if(!response.ok){
-throw new Error("فشل الإرسال");
+  }catch(error){
+    alert("لم يتم إرسال الطلب. تحقق من الاتصال أو إعدادات الإرسال.");
+    sendBtn.disabled = false;
+    sendBtn.innerText = "إرسال الطلب";
+  }
 }
-
-document.getElementById("successMessage").style.display = "flex";
-
-setTimeout(()=>{
-
-document.getElementById("successMessage").style.display = "none";
-
-location.reload();
-
-},15000);
-
-}catch(error){
-
-alert("❌ حدث خطأ أثناء إرسال الطلب");
-
-}
-
-}
-
 </script>
 
 </body>
