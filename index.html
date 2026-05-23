@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>عالم الأرقام</title>
 <style>
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Tahoma, Arial, sans-serif;
-  background:linear-gradient(135deg,#070707,#151515);
-  color:#fff;
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
 }
 .offer{
-  background:#b80000;
-  color:#fff;
+  background:#c40000;
+  color:white;
   padding:12px;
   overflow:hidden;
   white-space:nowrap;
@@ -22,7 +22,7 @@ body{
 }
 .offer span{
   display:inline-block;
-  animation:move 14s linear infinite;
+  animation:move 16s linear infinite;
 }
 @keyframes move{
   from{transform:translateX(-100%)}
@@ -34,61 +34,79 @@ body{
   padding:22px;
 }
 .card{
-  background:#1d1d1d;
-  border-radius:24px;
+  background:white;
+  border-radius:26px;
   padding:24px;
-  box-shadow:0 10px 30px #0008;
+  box-shadow:0 12px 35px rgba(20,40,80,.12);
+  border:1px solid #e8edf5;
 }
 h1{
   text-align:center;
-  font-size:28px;
+  font-size:30px;
   margin:10px 0;
+  color:#0f172a;
 }
 .desc{
   text-align:center;
-  color:#ccc;
-  line-height:1.8;
-  margin-bottom:22px;
+  color:#566176;
+  line-height:1.9;
+  margin-bottom:24px;
 }
 label{
   display:block;
-  margin-top:14px;
-  color:#ddd;
+  margin-top:15px;
+  color:#334155;
+  font-weight:bold;
 }
 select,input,textarea,button{
   width:100%;
   padding:15px;
   margin-top:8px;
-  border:0;
-  border-radius:14px;
+  border-radius:15px;
   font-size:16px;
 }
 select,input,textarea{
-  background:#2b2b2b;
-  color:#fff;
+  background:#f8fafc;
+  color:#111827;
+  border:1px solid #dce3ee;
 }
 textarea{resize:none;height:90px}
-.price{
+.info{
   margin:18px 0;
-  padding:14px;
-  background:#102d25;
-  color:#20ffc2;
-  border-radius:16px;
+  padding:16px;
+  background:#eefdf7;
+  color:#047857;
+  border:1px solid #b7f3db;
+  border-radius:18px;
   text-align:center;
-  font-size:18px;
-  font-weight:bold;
+  line-height:1.8;
+  font-size:15px;
 }
+.info b{font-size:18px}
 button{
+  border:0;
   background:#00b894;
-  color:#fff;
+  color:white;
   font-size:19px;
   font-weight:bold;
+  cursor:pointer;
 }
 .hidden{display:none}
+.back{
+  background:#64748b;
+  margin-top:10px;
+}
+.note{
+  margin-top:18px;
+  font-size:13px;
+  color:#64748b;
+  text-align:center;
+  line-height:1.8;
+}
 .msg{
   position:fixed;
   inset:0;
-  background:#000b;
+  background:rgba(15,23,42,.55);
   display:none;
   align-items:center;
   justify-content:center;
@@ -96,17 +114,14 @@ button{
   z-index:99;
 }
 .msg div{
-  background:#111;
-  border:1px solid #00b894;
+  background:white;
+  color:#0f172a;
   border-radius:24px;
   padding:30px;
   text-align:center;
   line-height:2;
-  font-size:20px;
-}
-.back{
-  background:#444;
-  margin-top:10px;
+  font-size:18px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 </style>
 </head>
@@ -136,11 +151,6 @@ button{
 <option>سناب شات</option>
 <option>تويتر / X</option>
 <option>ديسكورد</option>
-<option>بايبال</option>
-<option>بينانس</option>
-<option>أمازون</option>
-<option>أوبر</option>
-<option>نتفلكس</option>
 <option>خدمة أخرى</option>
 </select>
 
@@ -149,73 +159,49 @@ button{
 <option>🇺🇸 أمريكا</option>
 <option>🇬🇧 بريطانيا</option>
 <option>🇨🇦 كندا</option>
-<option>🇫🇷 فرنسا</option>
-<option>🇩🇪 ألمانيا</option>
-<option>🇮🇹 إيطاليا</option>
-<option>🇪🇸 إسبانيا</option>
-<option>🇳🇱 هولندا</option>
-<option>🇸🇪 السويد</option>
-<option>🇳🇴 النرويج</option>
-<option>🇩🇰 الدنمارك</option>
-<option>🇫🇮 فنلندا</option>
-<option>🇵🇱 بولندا</option>
-<option>🇷🇺 روسيا</option>
-<option>🇺🇦 أوكرانيا</option>
-<option>🇹🇷 تركيا</option>
 <option>🇸🇦 السعودية</option>
 <option>🇦🇪 الإمارات</option>
 <option>🇰🇼 الكويت</option>
 <option>🇶🇦 قطر</option>
 <option>🇧🇭 البحرين</option>
 <option>🇴🇲 عمان</option>
-<option>🇾🇪 اليمن</option>
+<option>🇹🇷 تركيا</option>
+<option>🇪🇬 مصر</option>
 <option>🇮🇶 العراق</option>
 <option>🇯🇴 الأردن</option>
 <option>🇱🇧 لبنان</option>
-<option>🇸🇾 سوريا</option>
-<option>🇪🇬 مصر</option>
-<option>🇲🇦 المغرب</option>
-<option>🇩🇿 الجزائر</option>
-<option>🇹🇳 تونس</option>
-<option>🇱🇾 ليبيا</option>
-<option>🇸🇩 السودان</option>
+<option>🇩🇪 ألمانيا</option>
+<option>🇫🇷 فرنسا</option>
+<option>🇮🇹 إيطاليا</option>
+<option>🇪🇸 إسبانيا</option>
+<option>🇳🇱 هولندا</option>
 <option>🇮🇳 الهند</option>
-<option>🇵🇰 باكستان</option>
-<option>🇧🇩 بنغلاديش</option>
-<option>🇮🇩 إندونيسيا</option>
-<option>🇲🇾 ماليزيا</option>
-<option>🇵🇭 الفلبين</option>
-<option>🇹🇭 تايلاند</option>
-<option>🇻🇳 فيتنام</option>
-<option>🇨🇳 الصين</option>
-<option>🇯🇵 اليابان</option>
-<option>🇰🇷 كوريا الجنوبية</option>
 <option>🇧🇷 البرازيل</option>
-<option>🇲🇽 المكسيك</option>
-<option>🇦🇷 الأرجنتين</option>
-<option>🇦🇺 أستراليا</option>
-<option>🇿🇦 جنوب أفريقيا</option>
 <option>دولة أخرى</option>
 </select>
 
-<div class="price">
-يبدأ سعر الأرقام من 3$ إلى 15$<br>
-لتأكيد السعر والطلب اضغط على زر اطلب الآن
+<div class="info">
+<b>يبدأ سعر الأرقام من 3$ إلى 15$</b><br>
+حسب نوع الخدمة والدولة. لتأكيد السعر بعد إرسال الطلب سيتم التواصل معكم لتأكيد السعر وطرق الدفع.
 </div>
 
 <button onclick="goOrder()">اطلب الآن</button>
+
+<div class="note">
+طرق الدفع المتاحة: شام كاش والعملات الرقمية فقط.
+</div>
 </div>
 
 <div class="card hidden" id="order">
 <h1>إتمام الطلب</h1>
 
-<label>اسمك</label>
+<label>الاسم</label>
 <input id="name" placeholder="اكتب اسمك">
 
 <label>رقم التواصل</label>
 <input id="phone" placeholder="رقم واتساب أو وسيلة تواصل">
 
-<label>يوزر تلجرام للتواصل - اختياري</label>
+<label>يوزر تلجرام - اختياري</label>
 <input id="telegram" placeholder="@username">
 
 <label>ملاحظة - اختياري</label>
@@ -252,6 +238,7 @@ async function sendOrder(){
   const data = {
     service: document.getElementById("service").value,
     country: document.getElementById("country").value,
+    price: "من 3$ إلى 15$ حسب الخدمة والدولة",
     name: document.getElementById("name").value,
     phone: document.getElementById("phone").value,
     telegram: document.getElementById("telegram").value,
